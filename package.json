@@ -1,0 +1,82 @@
+{
+  "publisher": "FrankMesa",
+  "name": "sequential-cursor",
+  "displayName": "Sequential Cursor",
+  "description": "Edit each multi-cursor selection one by one, sequentially",
+  "version": "0.1.0",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": ["Other"],
+  "keywords": ["multicursor", "multi-cursor", "sequential", "edit"],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "sequentialCursor.startSequentialEdit",
+        "title": "Sequential Cursor: Start Sequential Edit"
+      },
+      {
+        "command": "sequentialCursor.confirmAndNext",
+        "title": "Sequential Cursor: Confirm and go to Next"
+      },
+      {
+        "command": "sequentialCursor.skipAndNext",
+        "title": "Sequential Cursor: Skip and go to Next"
+      },
+      {
+        "command": "sequentialCursor.cancel",
+        "title": "Sequential Cursor: Cancel"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "sequentialCursor.startSequentialEdit",
+        "key": "ctrl+alt+s",
+        "mac": "cmd+alt+s",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "sequentialCursor.confirmAndNext",
+        "key": "tab",
+        "when": "editorTextFocus && sequentialCursor.active"
+      },
+      {
+        "command": "sequentialCursor.skipAndNext",
+        "key": "shift+tab",
+        "when": "editorTextFocus && sequentialCursor.active"
+      },
+      {
+        "command": "sequentialCursor.cancel",
+        "key": "escape",
+        "when": "editorTextFocus && sequentialCursor.active"
+      }
+    ],
+    "configuration": {
+      "title": "Sequential Cursor",
+      "properties": {
+        "sequentialCursor.showProgressInStatusBar": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show current cursor progress in the status bar"
+        },
+        "sequentialCursor.highlightColor": {
+          "type": "string",
+          "default": "#FF6B6B",
+          "description": "Highlight color for the active sequential cursor"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "vscode:prepublish": "npm run compile"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.85.0",
+    "@types/node": "^20.0.0",
+    "typescript": "^5.3.0"
+  }
+}
