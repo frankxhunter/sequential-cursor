@@ -19,7 +19,7 @@ Edit each multi-cursor position **one by one**, without jumping around manually.
 
 | Key | Action |
 |-----|--------|
-| `Ctrl+Alt+S` / `Cmd+Alt+S` | Start sequential edit mode |
+| `Ctrl+Alt+S` / `Cmd+Alt+S` | Start sequential edit mode |icon
 | `Tab` | Confirm and go to next |
 | `Shift+Tab` | Skip current and go to next |
 | `Alt+↓` | Navigate to next cursor |
